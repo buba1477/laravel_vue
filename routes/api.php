@@ -19,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-//Route::group(['namespace' => 'App\Http\Controllers\Person','prefix' => 'people'], function (){
-//    Route::post('/', 'StoreController');
-//    Route::get('/', 'IndexController');
-//});
+Route::group(['namespace' => 'App\Http\Controllers\Person','prefix' => 'people'], function (){
+    Route::post('/', 'StoreController');
+    Route::get('/', 'IndexController');
+});
 
 
 

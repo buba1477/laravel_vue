@@ -16,17 +16,31 @@
         <input @click.prevent="addPerson()" type="submit" class="btn btn-primary" value="Добавить" placeholder="name">
     </div>
     </div>
+
+    <SomeComponent :obj="obj"></SomeComponent>
 </template>
 
+
 <script>
+
+    import SomeComponent from "./SomeComponent.vue";
+
     export default {
         name: "CreateComponent",
+        components : {
+            SomeComponent
+        },
 
         data(){
             return {
                 name: null,
                 age:null,
-                job:null
+                job:null,
+                obj: {
+                    color: 'black',
+                    number: 3,
+                    isPublish: false
+                }
             }
         },
         methods: {
@@ -36,8 +50,13 @@
                         this.name = null;
                         this.age = null;
                         this.job = null;
+                        this.$parent.$refs.index.getPeople()
                     })
             }
+        },
+
+        mounted() {
+
         }
     }
 </script>

@@ -2,19 +2,34 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import * as VueRouter from 'vue-router';
+import Index from "./components/Index.vue";
+
+
+
+const routes = [
+    {
+        path: '/people',
+        component: () => import('./components/Person/Index.vue'),
+        name: 'person.index'
+    },
+    {
+        path: '/create',
+        component: () => import('./components/Person/Create.vue'),
+        name: 'person.create'
+    },
+
+]
+
+const routers  = VueRouter.createRouter({
+    history: VueRouter.createWebHistory('/'),
+    routes
+})
 
 
 const app = createApp({});
 
-// import PostComponent from './components/PostComponent.vue';
-// app.component('post-component', PostComponent);
-//
-import NewComponent from './components/NewComponent.vue';
-app.component('new-component', NewComponent);
+app.use(routers)
 
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
-
-
+app.component('index', Index);
 app.mount('#app');

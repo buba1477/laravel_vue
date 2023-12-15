@@ -19,7 +19,7 @@
 <body>
     <div id="app" class="p-5">
 
-        <new-component></new-component>
+       @yield('content')
 
     </div>
 </body>

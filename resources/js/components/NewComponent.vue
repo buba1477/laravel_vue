@@ -4,7 +4,7 @@
 
         <CreateComponent></CreateComponent>
 
-        <IndexComponent></IndexComponent>
+        <IndexComponent ref="index"></IndexComponent>
 <!--        <table class="table">-->
 <!--            <thead>-->
 <!--            <tr>-->
@@ -50,7 +50,9 @@
 
         },
         methods: {
+           parentLog(a) {
 
+           }
         },
 
         computed: {
